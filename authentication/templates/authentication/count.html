@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/count.css' %}">
+{% endblock %}
+
+{% block title %}Count{% endblock %}
+
+{% block content %}
+<div class="body">
+    <h1>Compte</h1>
+    <div class="count">
+        <div class="img-user">
+            <img class="img" src="{{user.photo_profile.url}}">
+        </div>
+        <div class="info-user">
+            <h2>Username : {{request.user.username}}</h2>
+            <h2>Adresse mail : {{user.email}}</h2>
+        </div>
+        <div class="change-info-user">
+            <form method="post">
+                <button class="button-cta2" type="submit" name="cmdp" value="cmdp"><span>Changer de mot de passe</span></button></br>
+                <button class="button-cta2" type="submit" name="logout" value="logout"><span>Se déconnecter</span></button>
+                {% csrf_token %}
+            </form>
+            <a class="button-cta2" href="{% url 'change-photo-profile' %}"><span>Changer de photo de profile</span></a></br>
+            <a class="button-cta2" href="{% url 'change-username' %}"><span>Changer d'username</span></a>
+        </div>
+        <div class="stats-user">
+            <p>{{user.nb_publications}} création(s)</p>
+            <p>{{user.nb_likes}} like(s)</p>
+            <p>{{user.nb_followers}} follower(s)</p>
+        </div>
+    </div>
+    <h2>Personne suivi :</h2>
+    {% if user.follows.exists %}
+        {% for personne in request.user.follows.all %}
+            <h3><a href="{% url 'user-detail' personne.id %}">{{personne.username}}</a></h3>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="data-personne-id" value="{{personne.id}}">
+                <button type="submit" name="unfollow" value="unfollow">Unfollow</button>
+            </form>
+        {% endfor %}
+    {% endif %}
+    <h2>Publications :</h2>
+    {% if publications %}
+        <ul class="ul-publi">
+        {% for publication in publications %}
+            <a href="{% url 'detail-article' publication.id %}">
+                <li class="li-publi">
+                    <h2 class="h2">{{publication.title}}</h2>
+                    <img src="{{publication.image_principal.image.url}}">
+                </li>
+            </a>
+        {% endfor %}   
+        </ul> 
+    {% else %}
+        <h3>Aucune publication.</h3>
+    {% endif %}
+    <h2>Commandes :</h2>
+    {% if commandes %}
+        {% for quantites in commandes %}
+            {% for quantite in quantites. %}
+                <h3>Article : {{quantite.article.title}}</h3>
+            {% endfor %}
+        <h3>Prix : {{quantite.prix}} $</h3>
+        {% endfor %}
+    {% else %}
+    <h3>Aucune commande passé pour le moment.</h3>
+    {% endif %}
+</div>
+{% endblock %}

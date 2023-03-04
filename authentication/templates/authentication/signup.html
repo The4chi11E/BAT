@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+<div class="body">
+    <h1>Création de compte :</h1>
+    <form method="post">
+        <div class="annexe">
+            {{ form.as_p }}
+            {% csrf_token %}
+        </div>
+        <button class="button-cta" type="submit"><p>S'inscrire</p></button>
+    </form>
+</div>
+
+
+{% endblock content %}

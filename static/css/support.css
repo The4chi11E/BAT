@@ -1,0 +1,146 @@
+:root {
+    --color-secondaire : #CAA8E1;
+    --color-button : #52A22A;
+    --style-text : 'Itim', sans-serif;
+    --style-button : 'Fredoka One', sans-serif;
+    --style-titre : 'Roboto Condensed', sans-serif;
+}
+
+div, h1, h2, a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    font-family: var(--style-titre);
+    font-size: 42px;
+    padding-top: 35px;
+}
+
+h2 {
+    font-family: var(--style-titre);
+    font-size: 36px;
+}
+.login {
+    display: inline-block;
+    background: #000;
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+.login span {
+    display: inline-block;
+    background: var(--color-button);
+    font-family: var(--style-button);
+    font-size: 30px;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 18px;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 
+    transform 0.15s ease-out,
+    color 0.15s ease-out,
+    background-color 0.15s ease-out;
+}
+
+.btn-login {
+    margin-bottom: 10vw;
+}
+
+.login:hover span {
+    transform:translate(-6px,-6px);
+    color: #000;
+    background: #ff90e8;
+}
+
+
+.image1 {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px black solid;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.image2 {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px black solid;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.para {
+    background-color: var(--color-button);
+    border: 1px black solid;
+    margin: 30px 3.5%;
+    display: flex;
+    height: auto;
+    width: 93%;
+    align-self: center;
+    justify-content: space-around;
+}
+
+.para p {
+    color: white;
+    font-family: var(--style-text);
+    font-size: 24px;
+    height: auto;
+    width: 275px;
+}
+
+@media screen and (max-width:400px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 33%;
+        height: 50vh;
+    }
+
+    .img-home, .grid-button, .titre, .text {
+        margin: 20px 0;
+        padding: 0;
+    }
+    
+    h1{
+        font-size: 22px;
+        text-align: center;
+    }
+
+    h2{
+        font-size: 16.5px;
+        text-align: center;
+    }
+    .para {
+        display: flex;
+        flex-direction: column;
+    }
+
+    p {
+        font-size: 15px;
+        text-align: center;
+    }
+    
+    .image1, .image2 {
+        width: 50vw;
+        height: auto;
+        align-self: center;
+
+    }
+
+    .login {
+        justify-content: center;
+    }
+    
+}

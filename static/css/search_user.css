@@ -1,0 +1,54 @@
+:root {
+    --color-secondaire : #CAA8E1;
+    --color-button : #52A22A;
+    --style-text : 'Itim', sans-serif;
+    --style-button : 'Fredoka One', sans-serif;
+    --style-titre : 'Roboto Condensed', sans-serif;
+}
+
+.s-ul {
+    list-style-type: none;
+    padding-inline-start:0px;
+}
+
+.image-user {
+    border: 25px;
+    margin-left: 30px;
+    margin-right: 35px;
+    height: 97.5px;
+    width: 143px ;
+    border-radius: 30px ;
+}
+
+.s-li {
+    display: flex;
+    height: 30%;
+    max-height: 100px;
+    min-height: 30px;
+    flex-direction: row;
+    background-color: aliceblue;
+    margin-bottom: 15px;
+    align-items: center;
+    margin-right: 30px;
+    margin-left: 30px;
+    border-radius: 30px ;
+    border: 2px black solid;
+}
+
+h2 {
+    font-family: var(--style-titre);
+    font-size: minmax(24px,4vw);
+    color: black;
+}
+
+.body {
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 400px) {
+    .image-user {
+        height: 47.75px;
+        width: 71.5px ;
+    }
+}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/panier.css' %}">
+{% endblock %}
+
+{% block title %}Panier{% endblock %}
+
+{% block content %}
+<div class="body">
+    <h1>Commande en cours :</h1>
+    {% if commande %}
+        <ul class="s-ul">
+            {% for article in articles %}
+                <li class="p-li">
+                    <form method="post">
+                        {% csrf_token %}
+                        <h3>Article : {{article.article.title}} ({{article.form}}) : {{article.prix}}</h3>
+                        <input type="hidden" name="data-quantite-id" value="{{article.id}}">
+                        <button class="button-cta" type="submit" name="change-order" value="change-order">Enregistrer les modifications</button>
+                        <button class="button-cta" type="submit" name="delete-order" value="delete-order">Supprimer cet article</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Total price : {{prix}} $</h2>
+        <form method="post">
+            {% csrf_token %}
+            <button class="button-cta" type="submit" name="delete" value="delete">Supprimer la commande</button>
+        </form>
+        <div id="paypal-button-container"></div>
+    {% else %}
+        <h2>Pas de commande en cours.</h2>
+    {% endif %}
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AaICXwxTors3OZzPBrV10e9TQ71bFHy0Vh9S_K9JwkP61nY0tBQmieKuBQ4BjyR0Q6dzG2rMc2S9FnHI&currency=USD"></script>
+
+<script>
+    paypal.Buttons({
+      // Order is created on the server and the order id is returned
+      createOrder: function(data, actions) {
+        return actions.order.create({
+            purschase_units: [{
+                amount: {
+                    value: '0.01'
+                }
+            }]
+        });
+      },
+      // Finalize the transaction on the server after payer approval
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+            alert('Transaction completed by' + details.payer.name.given_name + '!')
+        });
+      }
+    }).render('#paypal-button-container');
+  </script>
+
+<script text="text/javascript">
+    /*
+    document.getElementById('makepaiement').addEventListener('click',function(e){
+        submitFormData()
+    })
+    */
+
+    
+</script>
+{% endblock %}

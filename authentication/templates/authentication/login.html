@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="body">
+    <h1>Se connecter :</h1>
+    <form method="post">
+        <div class="annexe">
+            {{ form.as_p }}
+            {% csrf_token %}
+        </div>
+        <button class="button-cta" type="submit"><p>Se connecter</p></button>
+    </form>
+    <p class="annexe">Mot de passe oublié ? <a class="annexe-a" href="{% url 'password-reset' %}">Rénitialiser le mot de passe</a></p>
+    <p class="annexe">Pas encore membre ? <a class="annexe-a" href="{% url 'signup' %}">Inscrivez-vous maintenant !</a></p>
+</div>
+
+
+{% endblock content %}

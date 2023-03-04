@@ -1,0 +1,68 @@
+:root {
+    --color-secondaire : #CAA8E1;
+    --color-button : #52A22A;
+    --style-text : 'Itim', sans-serif;
+    --style-button : 'Fredoka One', sans-serif;
+    --style-titre : 'Roboto Condensed', sans-serif;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.s-ul {
+    list-style-type: none;
+    padding-inline-start:0px;
+}
+
+.p-li {
+    display: flex;
+    flex-direction: row;
+    background-color: aliceblue;
+    margin-bottom: 15px;
+    align-items: center;
+    margin-right: 30px;
+    margin-left: 30px;
+    border-radius: 20px ;
+    border: 2px black solid;
+}
+
+.button-cta {
+    background-color: var(--color-button);
+    font-family: var(--style-button);
+    font-size: 20px;
+    border-radius: 20px;
+    border: 1px solid black;
+    color: white;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 4px 8px 4px 8px;
+    margin: 5px;
+}
+
+h1 {
+    font-family: var(--style-titre);
+    font-size: 30px;
+    color: black;
+}
+
+h2 {
+    font-family: var(--style-titre);
+    font-size: 24px;
+    color: black;
+}
+
+h3 {
+    font-family: var(--style-titre);
+    font-size: 20px;
+}
+
+#paypal-button-container {
+    align-self: center;
+}

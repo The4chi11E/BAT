@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="titre">Vender, partager, acheter sur BAT !</h1>
+    <p class="text">Créé un article de vente en quelque clic, partagé le avec d'autre acheteurs et vendeurs.</br>
+        Une plateforme e-commerce sans limite.
+    </p>
+    <img class="img-home" src="{% static 'images/Home.jpg' %}">
+    <div class="grid-button">
+            <a class="button-cta2" href="{% url 'view-article' %}"><span>Voir les articles</span></a>
+    </div>
+</div>
+{% endblock %}

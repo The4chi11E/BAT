@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/support.css' %}">
+{% endblock %}
+
+{% block title %}Support{% endblock %}
+
+{% block content %}
+
+<h1>Bat : le nouveau monde de l'e-commerce</h1>
+<div class="div">
+    <img class="image1" src="{% static 'images/Support1.png' %}">
+</div>
+<div class="para">
+    <p>Meter en ligne n'importe quel produit que vous voulez vendre en quelque clics.</p>
+    <p>Acheter n'importe quel produit de vente mis en ligne par d'autres vendeurs en quelque secondes.</p>
+    <p>Découvrer et discuter avec d'autres utilisateurs ayant les mêmes passions et ambitions que vous. </p>
+</div>
+<div>
+    <img class="image2" src="{% static 'images/Support2.jpg' %}">
+</div>
+<h2>Rejoinger dès maintenant le fabuleux univers en ligne de Bat</h2>
+<div class="btn-login">
+    <a  class="login" href="{% url 'login' %}"><span>Se connecter</span></a>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+
+{% block title %}Edit/Delete Article{% endblock %}
+
+{% block content %}
+<div class="post">
+    <h1>Modifier l'article :</h1>
+    <form method="post" enctype="multipart/form-data">
+        {{ edit_formA.as_p }}
+        <h3>(Les anciennes photos ne sont pas sauvegardées)</h3>
+        {% for photo_form in edit_formP %}
+            {{ photo_form.as_p }}
+        {% endfor %}
+        {% csrf_token %}
+        <button type="submit" class="button-cta" name="edit" value="edit"><span>Enregistrer</span></button>
+        {{delete_form.as_p}}
+        <button type="submit" class="button-cta" name="delete" value="delete"><span>Supprimer</span></button>
+    </form>
+</div>
+
+{% endblock %}

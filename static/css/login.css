@@ -1,0 +1,65 @@
+:root {
+    --color-secondaire : #CAA8E1;
+    --color-button : #52A22A;
+    --style-text : 'Itim', sans-serif;
+    --style-button : 'Fredoka One', sans-serif;
+    --style-titre : 'Roboto Condensed', sans-serif;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: black 1px solid;
+    margin-top: 125px;
+    padding: 20px;
+    width: 450px;
+    background-color: var(--color-secondaire);
+}
+.button-cta {
+    background-color: var(--color-button);
+    font-family: var(--style-button);
+    font-size: 30px;
+    border-radius: 20px;
+    border: 1px solid black;
+    color: white;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 15px;
+}
+
+.button-cta p {
+    margin:4px;
+}
+
+.annexe {
+    color: black;
+    font-family: var(--style-text);
+    font-size: 24px;
+    height: auto;
+    width: 400px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-family: var(--style-titre);
+    font-size: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.annexe-a {
+    color: black;
+    font-family: var(--style-text);
+    text-decoration: underline;
+    font-size: 24px;
+}

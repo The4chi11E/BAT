@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cata.css' %}">
+{% endblock %}
+
+{% block title %}Articles{% endblock %}
+
+{% block content %}
+<div class="body">
+    <h1>Articles : </h1>
+    <div class="ul-cata">
+    {% for article in articles %}
+        <div class="li-cata">
+            <h2 class="title-article">{{article.title}}</a></h2>
+            <div class="img-article">
+                <img class="image1" src="{{article.image_principal.image.url}}">
+            </div>
+            <div class="detail-article">
+                <a class="article" href="{% url 'detail-article' article.id %}"><span>Voir l'article</span></a>
+                <div>
+                    <h2>{{article.price}} €</h2>
+                    <h2>{{article.likes.count}} like(s)</h2>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

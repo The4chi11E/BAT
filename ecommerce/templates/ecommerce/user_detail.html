@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/count.css' %}">
+{% endblock %}
+
+{% block title %}{{user.username}}{% endblock %}
+
+{% block content %}
+<style>
+    .follow-button {
+      border: 1px solid #000;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  
+    .unfollow {
+      background-color: #fff;
+    }
+  
+    .follow {
+      background-color: #00f;
+      color: #fff;
+    }
+  </style>
+<div class="body">
+  <h1>{{user.username}}</h1>
+  <div class="count">
+    {% if user.is_authenticated %}
+      <div class="change-info-user">
+        <form method="post">
+            {% csrf_token %}
+            {% if follow %}
+                <button type="submit" class="follow-button follow" name="follow" value="follow">Unfollow</button>
+            {% else %}
+                <button type="submit" class="follow-button unfollow" name="follow" value="follow">Follow</button>
+            {% endif %}
+        </form>
+      </div>
+    {% endif %}
+    <div class="img-user">
+      <img src="{{user.photo_profile.url}}">
+    </div>
+    <div class="stats-user">
+      <p>{{nb_publications}} création(s)</p>
+      <p>{{nb_likes}} like(s)</p>
+      <p>{{nb_followers}} follower(s)</p>
+    </div>
+  </div>
+  <h2>Publications :</h2>
+  {% if publications %}
+    <ul class="ul-publi">
+      {% for publication in publications %}
+        <li class="li-publi">
+          <h2><a href="{% url 'detail-article' publication.id %}">{{publication.title}}</a></h2>
+          <img src="{{publication.image_principal.image.url}}">
+        </li>
+      {% endfor %}
+    </ul>    
+  {% else %}
+      <h3>Aucune publication.</h3>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search_user.css' %}">
+{% endblock %}
+
+{% block title %}Search User{% endblock %}
+
+{% block content %}
+<div class="body">
+    <h1>Users in BAT :</h1>
+    <ul class="s-ul">
+        {% for user in users %}
+            <a href="{% url 'user-detail' user.id %}">
+                <li class="s-li">
+                    <img  class="image-user" src="{{user.photo_profile.url}}">
+                    <h2>{{user.username}}</h2>
+                </li>
+            </a>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}

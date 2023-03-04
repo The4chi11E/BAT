@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+{% block title %}Post Article{% endblock %}
+
+{% block content %}
+<div class="post">
+    <h1>Post</h1>
+    <form method="post" enctype="multipart/form-data">
+        {{ formA.as_p }}
+        {{ formP.as_p }}
+        {% csrf_token %}
+        <button class="button-cta" type="submit"><span>Mettre en ligne l'article</span></button>
+    </form>
+</div>
+
+{% endblock %}

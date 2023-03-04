@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="body">
+    <h1>Sélectionner une nouvelle image de profile</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="annexe">
+            {{form.as_p}}
+            {% csrf_token %}
+            <button class="button-cta" type="submit">Changer</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

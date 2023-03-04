@@ -1,0 +1,135 @@
+:root {
+    --color-secondaire : #CAA8E1;
+    --color-button : #52A22A;
+    --style-text : 'Itim', sans-serif;
+    --style-button : 'Fredoka One', sans-serif;
+    --style-titre : 'Roboto Condensed', sans-serif;
+}
+
+.nav, .footer {
+    background-color: var(--color-secondaire);
+    width: 100%;
+    height: 15%;
+    min-height: 10px;
+    max-height: 70px;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.footer {
+    bottom:0;
+}
+
+.nav {
+    top: 0;
+}
+
+.hyperlien {
+    opacity: 0;
+    transform: translateX(40px);
+    color:black;
+    margin-right: 20px;
+}
+
+section {
+    margin:70px 0px 70px 0px;
+}
+
+.nav ul {
+    color:black;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+
+}
+
+.nav img, svg {
+    color:black;
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+
+ 
+.footer ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.image {
+    width: 50px;
+    height: 50px;
+    margin-right: 25px;
+}
+
+a {
+    font-family: var(--style-button);
+    font-size: 2.2vw;
+    text-decoration: none;
+}
+
+
+
+.logo{
+    width: 40px;
+    height: 30px;
+    border-radius: 90px;
+}
+
+.wavy {
+    width: 100%;
+    margin-bottom: 70px;
+    margin-left: 0;
+    left: 0;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    animation: apparition-wavy 0.6s 0.4s ease forwards;
+    z-index: -1000;
+}
+
+.bottom {
+    width: 100%;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    background: #CC7BF2;
+    height: 75vh;
+    opacity: 0;
+    animation: apparition-wavy 0.6s 0.4s ease forwards;
+    z-index: -1000;
+}
+
+@media screen and (max-width:450px) {
+    .bottom {
+        height: 85vh;
+    }
+}
+
+@keyframes apparition-nav {
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes apparition-wavy {
+    100% {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .nav ul {
+        gap: 1.8vw;
+        padding: 0;
+    }
+}
